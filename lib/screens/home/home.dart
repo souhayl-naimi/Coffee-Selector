@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:coffee_selector/services/database.dart';
 import 'package:provider/provider.dart';
 import 'package:coffee_selector/screens/home/coffee_list.dart';
+import 'package:coffee_selector/screens/home/settings_form.dart';
 import 'package:coffee_selector/models/coffee.dart';
 
 class Home extends StatelessWidget {
@@ -11,6 +12,14 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void _showSettingsPanel(){
+      showModalBottomSheet(context: context, builder: (context) {
+        return Container(
+          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+          child: SettingsForm(),
+        );
+      });
+    }
     return StreamProvider<List<Coffee>>.value(
       value: DatabaseService().coffees,
       child: Scaffold(
@@ -26,6 +35,11 @@ class Home extends StatelessWidget {
               onPressed: () async {
                 await _auth.signOut();
               },
+            ),
+            FlatButton.icon(
+              icon: Icon(Icons.settings),
+              label: Text('Update'),
+              onPressed: () => _showSettingsPanel(),
             )
           ],
         ),
