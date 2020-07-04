@@ -11,7 +11,7 @@ class CoffeeList extends StatefulWidget {
 class _CoffeeListState extends State<CoffeeList> {
   @override
   Widget build(BuildContext context) {
-    final coffees = Provider.of<List<Coffee>>(context);
+    final coffees = Provider.of<List<Coffee>>(context)??[];
     /*   //print(coffees.documents);
     for(var doc in coffees.documents){
       print(doc.data);
