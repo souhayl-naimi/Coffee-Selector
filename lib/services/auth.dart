@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:coffee_selector/models/user.dart';
+import 'package:coffee_selector/services/database.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -46,6 +47,8 @@ Future SignInWithEmail(String email,String password) async{
       AuthResult result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser user = result.user;
+      //create a document with the uid of the new user
+      await DatabaseService(uid: user.uid).updateUserData('0', 'new user', 100);
       return _userFromFireBaseUser(user);
     } catch (e) {
       print(e);
