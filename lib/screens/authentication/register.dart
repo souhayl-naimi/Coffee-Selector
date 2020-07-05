@@ -29,7 +29,7 @@ class _RegisterState extends State<Register> {
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
         elevation: 0.0,
-        title: Text("Sign Up"),
+        title: Text("Register"),
         actions: <Widget>[
           FlatButton.icon(
             icon: Icon(Icons.person),
@@ -46,6 +46,7 @@ class _RegisterState extends State<Register> {
           key: _formKey,
           child: Column(
             children: <Widget>[
+              Image.asset('assets/coffee_login.png',height: 150, width: 100),
               SizedBox(height: 20.0),
               TextFormField(
                   decoration: textInputDecoration.copyWith(hintText: 'Email'),
@@ -63,8 +64,14 @@ class _RegisterState extends State<Register> {
                   setState(() => password = val);
                 },
               ),
+              Padding(
+                padding: const EdgeInsets.all(5),
+              ),
               RaisedButton(
-                color: Colors.blue[400],
+                color: Colors.brown[200],
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0)
+                ),
                 child: Text("Register", style: TextStyle(color: Colors.white)),
                 onPressed: () async {
                   if (_formKey.currentState.validate()) {

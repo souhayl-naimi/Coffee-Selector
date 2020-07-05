@@ -41,12 +41,14 @@ class _SignInState extends State<SignIn> {
           )
         ],
       ),
-      body: Container(
+      body:
+     Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: Form(
           key: _formKey,
           child: Column(
             children: <Widget>[
+              Image.asset('assets/coffee_login.png',height: 150, width: 100),
               SizedBox(height: 20.0),
               TextFormField(
                   decoration: textInputDecoration.copyWith(hintText: 'Email'),
@@ -64,8 +66,14 @@ class _SignInState extends State<SignIn> {
                   setState(() => password = val);
                 },
               ),
+              Padding(
+                padding: const EdgeInsets.all(5),
+              ),
               RaisedButton(
-                color: Colors.blue[400],
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0)
+                ),
+                color: Colors.brown[200],
                 child: Text("Sign In", style: TextStyle(color: Colors.white)),
                 onPressed: () async {
                   if (_formKey.currentState.validate()) {

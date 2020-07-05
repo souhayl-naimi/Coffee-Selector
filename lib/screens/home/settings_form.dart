@@ -37,7 +37,7 @@ class _SettingsFormState extends State<SettingsForm> {
           child: Column(
             children: <Widget>[
               Text(
-                'Update your coffee settings.',
+                'how do you like your coffee?',
                 style: TextStyle(fontSize: 18.0),
               ),
               SizedBox(height: 20.0),
@@ -71,7 +71,10 @@ class _SettingsFormState extends State<SettingsForm> {
                 onChanged: (val) => setState( () => _currentStrength = val.round()),
               ),
               RaisedButton(
-                  color: Colors.pink[400],
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0)
+                  ),
+                  color: Colors.brown[200],
                   child: Text(
                     'Update',
                     style: TextStyle(color: Colors.white),
