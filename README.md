@@ -14,3 +14,8 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Why?
+
+i built this project so can a number of people in one team select their preferred cup of coffee, with real time database
+where every one who registered to the app and got signed in will have his favourite cup reset to null value until he selects his name, strenght and number of sugars he wants
